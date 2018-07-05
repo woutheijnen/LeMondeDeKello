@@ -1,0 +1,416 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{0BD26D29-3EA3-4BBD-883F-D6DBFA56A62E}</ProjectGuid>
+        <ProjectVersion>15.1</ProjectVersion>
+        <FrameworkType>VCL</FrameworkType>
+        <MainSource>leMondeDeKelloWoutAlan.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Console</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <DCC_UsePackage>FireDACASADriver;FireDACSqliteDriver;bindcompfmx;DBXSqliteDriver;FireDACPgDriver;FireDACODBCDriver;fmx;rtl;dbrtl;DbxClientDriver;IndySystem;FireDACCommon;bindcomp;DBXInterBaseDriver;DataSnapCommon;xmlrtl;ibxpress;DbxCommonDriver;IndyProtocols;dbxcds;DBXMySQLDriver;FireDACCommonDriver;bindengine;soaprtl;bindcompdbx;FMXTee;fmxFireDAC;FireDACADSDriver;CustomIPTransport;FireDAC;dsnap;IndyIPServer;fmxase;IndyCore;IndyIPCommon;CloudService;FireDACIBDriver;FmxTeeUI;inet;fmxobj;FireDACMySQLDriver;inetdbxpress;fmxdae;RESTComponents;FireDACMSAccDriver;dbexpress;IndyIPClient;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_UsePackage>frxDB19;FireDACASADriver;FireDACSqliteDriver;bindcompfmx;DBXSqliteDriver;vcldbx;FireDACPgDriver;FireDACODBCDriver;fmx;rtl;dbrtl;DbxClientDriver;IndySystem;FireDACCommon;bindcomp;TeeDB;frx19;vclib;inetdbbde;DBXInterBaseDriver;Tee;DataSnapCommon;vclFireDAC;xmlrtl;svnui;ibxpress;DbxCommonDriver;vclimg;IndyProtocols;dbxcds;DBXMySQLDriver;FireDACCommonDriver;MetropolisUILiveTile;bindengine;vclactnband;vcldb;soaprtl;bindcompdbx;vcldsnap;bindcompvcl;FMXTee;TeeUI;vclie;fmxFireDAC;FireDACADSDriver;vcltouch;CustomIPTransport;vclribbon;VclSmp;FireDAC;dsnap;IndyIPServer;Intraweb;fmxase;vcl;IndyCore;VCLRESTComponents;IndyIPCommon;CloudService;CodeSiteExpressPkg;dsnapcon;FireDACIBDriver;FmxTeeUI;inet;fmxobj;FireDACMySQLDriver;vclx;inetdbxpress;svn;fmxdae;frxe19;RESTComponents;bdertl;adortl;FireDACMSAccDriver;dbexpress;IndyIPClient;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_UsePackage>FireDACASADriver;FireDACSqliteDriver;bindcompfmx;DBXSqliteDriver;FireDACPgDriver;FireDACODBCDriver;fmx;rtl;dbrtl;DbxClientDriver;IndySystem;FireDACCommon;bindcomp;TeeDB;vclib;DBXInterBaseDriver;Tee;DataSnapCommon;vclFireDAC;xmlrtl;ibxpress;DbxCommonDriver;vclimg;IndyProtocols;dbxcds;DBXMySQLDriver;FireDACCommonDriver;MetropolisUILiveTile;bindengine;vclactnband;vcldb;soaprtl;bindcompdbx;vcldsnap;bindcompvcl;FMXTee;TeeUI;vclie;fmxFireDAC;FireDACADSDriver;vcltouch;CustomIPTransport;vclribbon;VclSmp;FireDAC;dsnap;IndyIPServer;Intraweb;fmxase;vcl;IndyCore;VCLRESTComponents;IndyIPCommon;CloudService;dsnapcon;FireDACIBDriver;FmxTeeUI;inet;fmxobj;FireDACMySQLDriver;vclx;inetdbxpress;fmxdae;RESTComponents;adortl;FireDACMSAccDriver;dbexpress;IndyIPClient;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Gestion\attaqueSortAdv.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Gestion\adversaireAttaque.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Autre\formulePvRestant.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Interface\combatFin.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Interface\actualisationEcranCombat.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Autre\formuleOr.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Autre\formuleXp.pas"/>
+        <DCCReference Include="Liste des unitées\Gestion de niveaux\monterNiv.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Autre\formuleDegatSort.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\adversaireAttaqueHybride.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\adversaireAttaqueGuerrier.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\adversaireAttaqueRodeur.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\adversaireAttaqueVampire.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\adversaireAttaqueMage.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Autre\formuleDegat.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Variables\effAdv.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Interface\barrePv.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Classe\classeTitre.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Classe\classe.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Classe\initialisationDesStats.pas"/>
+        <DCCReference Include="Liste des unitées\Map\map.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Stats\formulePv.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Stats\formuleAttaque.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Stats\formuleDefense.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Stats\formuleVitesse.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Variables\defineValsPers.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Nom\entrerNom.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Nom\choisirSonAspect.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Nom\genererNomAleatoire.pas"/>
+        <DCCReference Include="Liste des unitées\Gestion des variables\genererNombreAleatoire.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Nom\verificationNom.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Interface\imageProf.pas"/>
+        <DCCReference Include="Liste des unitées\Gestion des interfaces\questionImage.pas"/>
+        <DCCReference Include="Liste des unitées\Gestion de niveaux\tableXp.pas"/>
+        <DCCReference Include="Liste des unitées\Gestion des interfaces\insererLignes.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\histoire.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\credit.pas"/>
+        <DCCReference Include="Liste des unitées\Gestion des interfaces\GestionEcran.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortBouleDeFeu.pas"/>
+        <DCCReference Include="Liste des unitées\Gestion des variables\ram.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Gestion\attaqueSortPers.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortGlaciation.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\peche.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\coupe.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\Interface\actualisationDecranMinage.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\minage.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\data\minageText.pas"/>
+        <DCCReference Include="Liste des unitées\Map\verificationCoordonneesMap.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\combat.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Variables\effPers.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Gestion\joueurAttaque.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\joueurAttaqueGuerrier.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\joueurAttaqueRodeur.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\joueurAttaqueMage.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Selon classe\joueurAttaqueVampire.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\combatFuire.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Interface\joueurChoisirSortAttaque.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Formules\Autre\formuleFuire.pas"/>
+        <DCCReference Include="Liste des unitées\Map\codesCommande.pas"/>
+        <DCCReference Include="Liste des unitées\Sauvegardement\sauvegarder.pas"/>
+        <DCCReference Include="Liste des unitées\Map\Commandes\dataMouvement.pas"/>
+        <DCCReference Include="Liste des unitées\Map\Commandes\dataTriche.pas"/>
+        <DCCReference Include="Liste des unitées\Sauvegardement\chargement.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\jeu.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\menuInterface.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\ecranTitre.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET1.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET7.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET8.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET9.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET10.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET11.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET12.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET13.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET14.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET15.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET16.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET17.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET18.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET19.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET20.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET21.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET22.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET23.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET24.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET25.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET26.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET27.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET28.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET29.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET2.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET3.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET4.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET5.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET6.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET30.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET31.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\Images Ecran Titre\imageET32.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\menu.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\creationPersonnage.pas"/>
+        <DCCReference Include="Liste des unitées\Menu\confirmation.pas"/>
+        <DCCReference Include="Liste des unitées\Creation de personnage\Sexe\entrerSexe.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Variables\defineValsAdv.pas"/>
+        <DCCReference Include="Liste des unitées\Companion\galackData.pas"/>
+        <DCCReference Include="Liste des unitées\Map\msgErreur.pas"/>
+        <DCCReference Include="Liste des unitées\Map\objetsMap.pas"/>
+        <DCCReference Include="Liste des unitées\Map\pnj.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\interfaceJeu.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\sac.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\potion.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\sPotion.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\mPotion.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\livreDeCombat.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\tribulus.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\propolis.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\ginseng.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\omega3.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\aide.pas"/>
+        <DCCReference Include="Liste des unitées\Objets\objetErreur.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\stats.pas"/>
+        <DCCReference Include="Liste des unitées\Compétences\config.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortBlizzard.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortHydroblast.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortOndeDeChoc.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortTornade.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortJetDeFeu.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortSeisme.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortAeroblast.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortFeuSacre.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortBouleOmbre.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortCorruption.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortTenebres.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortOndeNoire.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortTyphonNoir.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortBouleDeSang.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortMalediction.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortFeuEnfer.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortChuteNoire.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortSacrifice.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortSoignage.pas"/>
+        <DCCReference Include="Liste des unitées\Combat\Attaque\Sorts\sortAntiSoin.pas"/>
+        <DCCReference Include="Liste des unitées\Map\apprendreSortsMage.pas"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formuleDegatGuerrier\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\effAdv\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaque\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueGuerrier\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\leMondeDeKelloWoutAlan\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\ram\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formuleDegatSort\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueSort\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\sortBouleDeFeu\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\leMondeDeKelloWoutAlan\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formuleDegatGuerrier\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueMageNoir\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formuleDegat\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueMage\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueVampire\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueHybride\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueRodeur\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\sortBouleDeFeu\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueGuerrier\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\ram\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaque\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueSort\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\adversaireAttaqueMageNoir\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\attaqueSort\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\attaqueSortPers\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\sortGlaciation\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\attaqueSortPers\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\combat\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\combatFuire\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\map\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\map\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\combatFuire\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formuleFuire\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\codesCommande\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\joueurChoisirSortAttaque\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\combat\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\sauvegarder\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\verificationCoordonneesMap\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET3\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\menuInterface\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\sauvegarder\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\jeu\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET26\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET16\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\dataMouvement\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET11\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET30\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET20\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET28\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET10\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET27\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\creationPersonnage\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET17\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\ecranTitre\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET12\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET31\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET21\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET9\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET8\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET13\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET32\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\verificationCoordonneesMap\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET22\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET6\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET5\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET4\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET18\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET24\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\dataTriche\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET14\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET2\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET23\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET1\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET7\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET29\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET19\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET25\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\chargement\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageET15\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\menu\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formulePv\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\actualisationEcranCombat\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\definerLesValeurs\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formuleVitesse\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\codesCommande\default.txvpck"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\credit\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formulePv\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\definerLesValeurs\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\entrerNom\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\actualisationEcranCombat\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\formuleVitesse\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\histoire\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\imageProf\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\verificationNom\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\confirmation\default.txaPackage"/>
+        <None Include="ModelSupport_leMondeDeKelloWoutAlan\entrerSexe\default.txaPackage"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1036</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                    <VersionInfoKeys Name="CFBundleName"/>
+                    <VersionInfoKeys Name="CFBundleDisplayName"/>
+                    <VersionInfoKeys Name="UIDeviceFamily"/>
+                    <VersionInfoKeys Name="CFBundleIdentifier"/>
+                    <VersionInfoKeys Name="CFBundleVersion"/>
+                    <VersionInfoKeys Name="CFBundlePackageType"/>
+                    <VersionInfoKeys Name="CFBundleSignature"/>
+                    <VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+                    <VersionInfoKeys Name="UISupportedInterfaceOrientations"/>
+                    <VersionInfoKeys Name="CFBundleExecutable"/>
+                    <VersionInfoKeys Name="CFBundleResourceSpecification"/>
+                    <VersionInfoKeys Name="LSRequiresIPhoneOS"/>
+                    <VersionInfoKeys Name="CFBundleInfoDictionaryVersion"/>
+                    <VersionInfoKeys Name="CFBundleDevelopmentRegion"/>
+                    <VersionInfoKeys Name="package"/>
+                    <VersionInfoKeys Name="label"/>
+                    <VersionInfoKeys Name="versionCode"/>
+                    <VersionInfoKeys Name="versionName"/>
+                    <VersionInfoKeys Name="persistent"/>
+                    <VersionInfoKeys Name="restoreAnyVersion"/>
+                    <VersionInfoKeys Name="installLocation"/>
+                    <VersionInfoKeys Name="largeHeap"/>
+                    <VersionInfoKeys Name="theme"/>
+                </VersionInfoKeys>
+                <Source>
+                    <Source Name="MainSource">leMondeDeKelloWoutAlan.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Deployment/>
+            <Platforms>
+                <Platform value="OSX32">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+            <ModelSupport>True</ModelSupport>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>

@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{82B269B1-3232-44FE-AD9F-E95F97EEA12E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="leMondeDeKelloWoutAlan.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="leMondeDeKelloWoutAlan">
+        <MSBuild Projects="leMondeDeKelloWoutAlan.dproj"/>
+    </Target>
+    <Target Name="leMondeDeKelloWoutAlan:Clean">
+        <MSBuild Projects="leMondeDeKelloWoutAlan.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="leMondeDeKelloWoutAlan:Make">
+        <MSBuild Projects="leMondeDeKelloWoutAlan.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="leMondeDeKelloWoutAlan"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="leMondeDeKelloWoutAlan:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="leMondeDeKelloWoutAlan:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
